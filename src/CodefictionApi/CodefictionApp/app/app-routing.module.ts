@@ -7,6 +7,7 @@ import { BlogComponent } from './containers/blog/blog.component';
 import { PodcastsComponent } from './containers/podcasts/podcasts.component';
 import { PodcastsDetailsComponent } from './containers/podcasts.details/podcasts.details.component';
 import { NotFoundComponent } from './containers/not-found/not-found.component';
+import { P2pDetailsComponent } from './containers/p2p-details/p2p-details.component';
 
 const appRoutes: Routes = [
     {
@@ -73,6 +74,18 @@ const appRoutes: Routes = [
         component: PodcastsDetailsComponent,
         data: {
             title: 'Podcasts',
+            meta: [{ name: 'description', content: 'This is an example Description Meta tag!' }],
+            links: [
+                { rel: 'canonical', href: 'http://blogs.example.com/blah/nice' },
+                { rel: 'alternate', hreflang: 'es', href: 'http://es.example.com/' }
+            ]
+        }
+    },
+    {
+        path: 'p2p/:slug',
+        component: P2pDetailsComponent,
+        data: {
+            title: 'P2P Podcastler',
             meta: [{ name: 'description', content: 'This is an example Description Meta tag!' }],
             links: [
                 { rel: 'canonical', href: 'http://blogs.example.com/blah/nice' },

@@ -14,6 +14,6 @@ export class Special implements IPodcast {
   guest: IPerson;
   attendees: IPerson[];
   tags: string[];
-  relation: IRelation[];
+  relations: IRelation[];
   publishDate: Date;
 }

@@ -10,7 +10,7 @@ export class Video  {
     longDescription: string;
     attendees: IPerson[];
     tags: string[];
-    relation: IRelation[];
+    relations: IRelation[];
     publishDate: Date;
     type: string;
 }

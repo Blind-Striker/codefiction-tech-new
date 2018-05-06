@@ -13,6 +13,6 @@ export interface IPodcast {
   guest: IPerson;
   attendees: IPerson[];
   tags: string[];
-  relation: IRelation[];
+  relations: IRelation[];
   publishDate: Date;
 }

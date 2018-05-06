@@ -1,0 +1,38 @@
+<!-- PAGE CONTENT START -->
+<section class="page-content detail-page">
+  <div class="container page-content-wrapper" *ngIf="p2p">
+      <div class="row">
+          <div class="col-sm-12">
+              <iframe style="visibility:hidden;" onload="this.style.visibility = 'visible';" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" [src]="soundCloudUrl"></iframe>
+          </div>
+      </div>
+      <div class="row portfolio-detail-wrapper">
+          <div class="col-sm-9">
+              <h1>{{p2p.title}}</h1>
+              <p> {{p2p.shortDescription}} </p>
+              <p>
+                  <iframe style="visibility:hidden;" onload="this.style.visibility = 'visible';" width="560" height="315" [src]="youtubeUrl" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              </p>
+          </div>
+          <div class="col-sm-3">
+              <aside>
+                  <div class="h6">Katılımcılar</div>
+                  <span>
+                      <ul>
+                          <li *ngFor="let attendee of p2p.attendees">{{attendee.name}}</li>
+                      </ul>
+                  </span>
+                  <div class="h6">Tarih</div>
+                  <span>{{p2p.publishDate | date:'shortDate'}}</span>
+                  <div class="h6">Tags</div>
+                  <span>
+                      <ul>
+                          <li *ngFor="let tag of p2p.tags">{{tag}}</li>
+                      </ul>
+                  </span>
+              </aside>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- PAGE CONTENT END -->
