@@ -29,6 +29,8 @@ import { P2psService } from './shared/p2ps.service'
 import { ORIGIN_URL } from '@nguniversal/aspnetcore-engine/tokens';
 import { P2psComponent } from './containers/p2ps/p2ps.component';
 import { P2pDetailsComponent } from './containers/p2p-details/p2p-details.component';
+import { PersonComponent } from './containers/person/person.component';
+import { PersonService } from './shared/person.service';
 
 @NgModule({
     declarations: [
@@ -47,7 +49,8 @@ import { P2pDetailsComponent } from './containers/p2p-details/p2p-details.compon
         PodcastsDetailsComponent,
         NotFoundComponent,
         P2psComponent,
-        P2pDetailsComponent
+        P2pDetailsComponent,
+        PersonComponent
     ],
     imports: [
         AppRoutingModule,
@@ -61,7 +64,8 @@ import { P2pDetailsComponent } from './containers/p2p-details/p2p-details.compon
     providers: [
         LinkService,
         PodcastService,
-        P2psService
+        P2psService,
+        PersonService
     ],
     bootstrap: [AppComponent]
 })

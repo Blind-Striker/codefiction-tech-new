@@ -1,0 +1,40 @@
+<!-- PAGE CONTENT START -->
+<section class="page-content detail-page">
+  <div class="container page-content-wrapper" *ngIf="person">
+
+    <div class="row portfolio-detail-wrapper">
+      <div class="col-sm-3">
+        <img [attr.src]="person.picUrl" alt="" *ngIf="person.picUrl">
+      </div>
+      <div class="col-sm-9">
+        <h2>{{person.name}}</h2>
+        <div *ngIf="person.linkedin">
+          <a [attr.href]="person.linkedin" class="btn btn-link"><i class="fa fa-linkedin"></i> {{person.linkedin}}</a>
+        </div>
+
+        <div *ngIf="person.twitter">
+          <a [attr.href]="person.twitter"  class="btn btn-link"><i class="fa fa-twitter"></i>{{person.twitter}}</a>
+        </div>
+
+        <div *ngIf="person.medium">
+          <a [attr.href]="person.medium"  class="btn btn-link"><i class="fa fa-medium"></i>{{person.medium}}</a>
+        </div>
+
+
+        <div *ngIf="person.github">
+          <a [attr.href]="person.github" class="btn btn-link"><i class="fa fa-github"></i>{{person.github}}</a>
+        </div>
+
+        <div *ngIf="person.email">
+          <a [attr.href]="'mailto:'+person.email" class="btn btn-link"><i class="fa fa-envelope"></i>{{person.email}}</a>
+        </div>
+
+        <div *ngIf="person.website" >
+          <a [attr.href]="person.website" class="btn btn-link"><i class="fa fa-globe"></i>{{person.website}}</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- PAGE CONTENT END -->
