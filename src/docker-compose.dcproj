@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.0</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>bd916f0d-4772-427c-a385-0eb3027e2944</ProjectGuid>
+    <ProjectGuid>ce9096c6-3876-481a-9174-1f3705a99e1d</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>http://localhost:{ServicePort}</DockerServiceUrl>
     <DockerServiceName>codefictionapi</DockerServiceName>

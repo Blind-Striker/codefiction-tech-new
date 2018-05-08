@@ -13,9 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodefictionApi.Core", "Code
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodefictionApi.Core.Tests", "Tests\CodefictionApi.Core.Tests\CodefictionApi.Core.Tests.csproj", "{547D777A-EF8A-416D-883C-8D371392FBD1}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BD916F0D-4772-427C-A385-0EB3027E2944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodefictionApi.IntegrationTests", "Tests\CodefictionApi.IntegrationTests\CodefictionApi.IntegrationTests.csproj", "{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodefictionApi.IntegrationTests", "Tests\CodefictionApi.IntegrationTests\CodefictionApi.IntegrationTests.csproj", "{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}"
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{CE9096C6-3876-481A-9174-1F3705A99E1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,14 +39,14 @@ Global
 		{547D777A-EF8A-416D-883C-8D371392FBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{547D777A-EF8A-416D-883C-8D371392FBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{547D777A-EF8A-416D-883C-8D371392FBD1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD916F0D-4772-427C-A385-0EB3027E2944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD916F0D-4772-427C-A385-0EB3027E2944}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD916F0D-4772-427C-A385-0EB3027E2944}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD916F0D-4772-427C-A385-0EB3027E2944}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0984F80B-AF49-4104-A6EE-CD1B8EE5695B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9096C6-3876-481A-9174-1F3705A99E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9096C6-3876-481A-9174-1F3705A99E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9096C6-3876-481A-9174-1F3705A99E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9096C6-3876-481A-9174-1F3705A99E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
