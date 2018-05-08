@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "~1.7.4",
     "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
@@ -27,7 +28,8 @@
     "@types/node": "^7.0.12",
     "angular2-router-loader": "^0.3.5",
     "angular2-template-loader": "^0.6.2",
-    "aspnet-prerendering": "^3.0.1",
+    "angular2-universal-polyfills": "2.0.11",
+    "aspnet-prerendering": "3.0.1",
     "awesome-typescript-loader": "^3.0.0",
     "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
@@ -50,13 +52,13 @@
     "to-string-loader": "^1.1.5",
     "typescript": "~2.5.0",
     "url-loader": "^0.5.7",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.4",
     "@angular/compiler-cli": "^5.2.1",
     "@types/chai": "^3.4.34",
     "@types/jasmine": "^2.5.37",
+    "chalk": "^2.4.1",
     "chai": "^3.5.0",
     "codelyzer": "4.0.0",
     "jasmine-core": "^2.5.2",

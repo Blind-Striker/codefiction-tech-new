@@ -8,9 +8,10 @@
 @section scripts {
   <script src="~/inline.bundle.js" asp-append-version="true"></script>
   <script src="~/polyfills.bundle.js" asp-append-version="true"></script>
-  @if (Html.IsDebug())
+  <script src="~/vendor.bundle.js" asp-append-version="true"></script>
+  @*@if (Html.IsDebug())
   {
     <script src="~/vendor.bundle.js" asp-append-version="true"></script>
-  }
+  }*@
   <script src="~/main.bundle.js" asp-append-version="true"></script>
 }

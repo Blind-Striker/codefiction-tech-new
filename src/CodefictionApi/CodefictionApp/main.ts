@@ -1,6 +1,7 @@
+import 'angular2-universal-polyfills';
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import './polyfills.server';
 
 import { AppModule } from './app/app.module.browser';
 import { environment } from './environments/environment';

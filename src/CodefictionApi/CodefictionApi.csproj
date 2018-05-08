@@ -9,6 +9,8 @@
     <RootNamespace>Codefiction.CodefictionTech.CodefictionApi</RootNamespace>
     <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
 
@@ -23,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Amazon.Lambda.Tools" Version="2.1.2" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
     <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
   </ItemGroup>
@@ -31,22 +32,13 @@
   <ItemGroup>
     <!-- Files not to show in IDE -->
     <None Remove="CodefictionApi.csproj.DotSettings" />
-    <None Remove="CodefictionApp\app\shared\podcasts.service.ts" />
     <None Remove="WatchRun.cmd" />
     <None Remove="WatchRun.ps1" />
     <None Remove="WatchRun.sh" />
-    <None Remove="yarn.lock" />
     <Content Remove="wwwroot\**" />
     <None Remove="CodefictionApp\dist-server\**" />
-    <Content Remove="coverage\**" />
-
-    <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
-    <Content Remove="CodefictionApp\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <TypeScriptCompile Include="CodefictionApp\app\shared\podcasts.service.ts" />
-  </ItemGroup>
 
   <ItemGroup>
     <Content Update="database.json">
@@ -55,28 +47,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Server\Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CodefictionApi.Core\CodefictionApi.Core.csproj" />
   </ItemGroup>
 
-  <Target Name="DebugNgBuild" BeforeTargets="Build" Condition="'$(Configuration)'=='Debug' AND !Exists('wwwroot')">
-    <!-- Ensure yarn is installed -->
-    <Exec Command="yarn --version" ContinueOnError="true">
+  <Target Name="DebugNgBuild" BeforeTargets="Build" Condition="!Exists('wwwroot')">
+    <!-- Ensure npm is installed -->
+    <Exec Command="npm --version" ContinueOnError="true">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
 
-    <Exec Command="yarn install" />
-    <Exec Command="ng build --env=dev --app 0" />
-    <Exec Command="ng build --env=dev --app 1" />
+    <Exec Command="npm install" />
+    <Exec Command="./node_modules/.bin/ng -v" />
+    <Exec Command="./node_modules/.bin/ng build --env=dev --app 0" />
+    <Exec Command="./node_modules/.bin/ng build --env=dev --app 1" />
   </Target>
 
   <Target Name="PublishProject" BeforeTargets="ComputeFilesToPublish">
-    <Exec Command="yarn install" />
-    <Exec Command="ng build --prod --app 0 --output-hashing=false --build-optimizer --aot" />
-    <Exec Command="ng build --prod --app 1 --output-hashing=false --build-optimizer --aot" />
+    <Exec Command="npm install" />
+    <Exec Command="./node_modules/.bin/ng -v" />
+    <Exec Command="./node_modules/.bin/ng build --env=dev --app 0" />
+    <Exec Command="./node_modules/.bin/ng build --env=dev --app 1" />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>

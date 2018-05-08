@@ -1,8 +1,6 @@
-/***************************************************************************************************
- * Zone JS is required by Angular itself.
- */
-import 'zone.js/dist/zone';  // Included with Angular CLI.
 
+import './polyfills.ts';
 
-
-/***************************************************************************************************/
+import 'zone.js/dist/zone';
+import 'reflect-metadata';
+// import 'web-animations-js';  // Run `npm install --save web-animations-js`.

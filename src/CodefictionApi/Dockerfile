@@ -1,8 +1,9 @@
-FROM blindstriker/aspnetcore-angular-universal:0.7 AS base
+FROM blindstriker/dotnetcore-ubuntu:latest AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM blindstriker/aspnetcore-build-angular-universal:0.7 AS build
+
+FROM blindstriker/dotnetcore-ubuntu:latest AS build
 WORKDIR /src
 COPY Codefiction.CodefictionTech.sln ./
 COPY CodefictionApi/CodefictionApi.csproj CodefictionApi/
@@ -18,4 +19,4 @@ RUN dotnet publish -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
-ENTRYPOINT ["dotnet", "Codefiction.CodefictionTech.CodefictionApi.dll"]
+ENTRYPOINT ["dotnet", "Codefiction.CodefictionTech.CodefictionApi.dll", "--server.urls http://*:80"]

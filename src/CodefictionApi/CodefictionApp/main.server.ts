@@ -1,5 +1,4 @@
-import 'zone.js/dist/zone-node';
-import './polyfills.server';
+import 'angular2-universal-polyfills';
 
 import { AppModule } from './app/app.module.server';
 import { enableProdMode } from '@angular/core';
