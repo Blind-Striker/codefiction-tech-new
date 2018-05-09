@@ -3,6 +3,7 @@ import { IRelation } from './contracts/IRelation';
 import { IPerson } from './contracts/IPerson';
 
 export class Podcast implements IPodcast {
+  
   id: number;
   season: number;
   title: string;
@@ -14,6 +15,6 @@ export class Podcast implements IPodcast {
   guest: IPerson;
   attendees: IPerson[];
   tags: string[];
-  relation: IRelation[];
+  relations: IRelation[];
   publishDate: Date;
 }

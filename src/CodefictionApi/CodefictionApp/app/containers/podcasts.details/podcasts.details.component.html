@@ -15,11 +15,14 @@
                 </p>
             </div>
             <div class="col-sm-3">
-                <aside>
+                <aside class="attendees">
                     <div class="h6">Katılımcılar</div>
                     <span>
                         <ul>
-                            <li *ngFor="let attendee of podcast.attendees">{{attendee}}</li>
+                            <li *ngFor="let attendee of podcast.attendees">
+                                <a  [routerLink]="['/person', attendee.name]">
+                                {{attendee.name}}</a>
+                            </li>
                         </ul>
                     </span>
                     <div class="h6">Tarih</div>
