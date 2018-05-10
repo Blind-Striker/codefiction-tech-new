@@ -152,7 +152,7 @@ namespace CodefictionApi.Core.Tests
             Assert.Equal(video.YoutubeUrl, videoModel.YoutubeUrl);
             Assert.Equal(video.ShortDescription, videoModel.ShortDescription);
             Assert.Equal(video.LongDescription, videoModel.LongDescription);
-            Assert.True(video.Tags.Any(s => videoModel.Tags.Contains(s)));
+            Assert.Contains(video.Tags, s => videoModel.Tags.Contains(s));
             Assert.Equal(video.PublishDate, videoModel.PublishDate);
             Assert.Equal(video.Relations.Length, videoModel.Relations.Length);
             Assert.NotNull(videoModel.Attendees);

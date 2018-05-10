@@ -56,7 +56,7 @@ namespace CodefictionApi.IntegrationTests
 
             var id = 2;
 
-            Meetup meetup = await meetupRepository.GetMeetupById(2);
+            Meetup meetup = await meetupRepository.GetMeetupById(id);
             Meetup dbMeetup = _database.Meetups.FirstOrDefault(m => m.Id == id);
 
             Assert.NotNull(meetup);
@@ -70,6 +70,32 @@ namespace CodefictionApi.IntegrationTests
             Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.Any(s => meetup.VideoIds.Contains(s)));
             Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.Any(s => meetup.SponsorIds.Contains(s)));
             Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.Any(s => meetup.Photos.Contains(s)));
+        }
+
+        [Fact]
+        public async Task GetMeetups_Should_Get_All_Meetups()
+        {
+            var memoryDatabaseProvider = new InMemoryDatabaseProvider(_database);
+            var meetupRepository = new MeetupRepository(memoryDatabaseProvider);
+
+            IList<Meetup> meetups = (await meetupRepository.GetMeetups()).ToList();
+
+            foreach (Meetup dbMeetup in _database.Meetups.ToList())
+            {
+                Meetup meetup = meetups.FirstOrDefault(m => m.Id == dbMeetup.Id);
+
+                Assert.NotNull(meetup);
+                Assert.NotNull(dbMeetup);
+                Assert.Equal(meetup.Id, dbMeetup.Id);
+                Assert.Equal(meetup.Title, dbMeetup.Title);
+                Assert.Equal(meetup.Date, dbMeetup.Date);
+                Assert.Equal(meetup.Description, dbMeetup.Description);
+                Assert.Equal(meetup.MeetupLink, dbMeetup.MeetupLink);
+                Assert.True(dbMeetup.Attendees != null && dbMeetup.Attendees.Any(s => meetup.Attendees.Contains(s)));
+                Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.Any(s => meetup.VideoIds.Contains(s)));
+                Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.Any(s => meetup.SponsorIds.Contains(s)));
+                Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.Any(s => meetup.Photos.Contains(s)));
+            }
         }
     }
 }

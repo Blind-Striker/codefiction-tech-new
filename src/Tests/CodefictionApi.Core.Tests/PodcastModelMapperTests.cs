@@ -238,7 +238,7 @@ namespace CodefictionApi.Core.Tests
             Assert.Equal(podcast.YoutubeUrl, podcastModel.YoutubeUrl);
             Assert.Equal(podcast.ShortDescription, podcastModel.ShortDescription);
             Assert.Equal(podcast.LongDescription, podcastModel.LongDescription);
-            Assert.True(podcast.Tags.Any(s => podcastModel.Tags.Contains(s)));
+            Assert.Contains(podcast.Tags, s => podcastModel.Tags.Contains(s));
             Assert.Equal(podcast.PublishDate, podcastModel.PublishDate);
             Assert.Equal(podcast.Relations.Length, podcastModel.Relations.Length);
             Assert.NotNull(podcastModel.Attendees);
