@@ -1,0 +1,15 @@
+image: Visual Studio 2017
+environment:
+  nodejs_version: "8"
+install:
+  - ps: Install-Product node $env:nodejs_version
+branches:
+  only:
+  - master
+init:
+  - cmd: git config --global core.autocrlf true
+build_script:
+  - cmd: dotnet --info && dotnet build ./src/Tests/CodefictionApi.Core.Tests/CodefictionApi.Core.Tests.csproj -c Release && dotnet build ./src/Tests/CodefictionApi.IntegrationTests/CodefictionApi.IntegrationTests.csproj -c Release && dotnet build ./src/Tests/CodefictionApi.Core.Tests/CodefictionApi.Core.Tests.csproj -c Release
+test_script:
+  - cmd: dotnet test ./src/Tests/CodefictionApi.Core.Tests -c Release --test-adapter-path:. --logger:Appveyor && dotnet test ./src/Tests/CodefictionApi.IntegrationTests -c Release --test-adapter-path:. --logger:Appveyor && dotnet test ./src/Tests/CodefictionApi.Core.Tests -c Release --test-adapter-path:. --logger:Appveyor
+deploy: off

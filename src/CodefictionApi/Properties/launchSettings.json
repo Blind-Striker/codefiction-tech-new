@@ -3,26 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://*:80",
+      "applicationUrl": "http://*:5000",
       "sslPort": 0
     }
   },
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "commandLineArgs": "--server.urls http://*:5002",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+  "CodefictionApi": {
+    "commandName": "Project",
+    "launchBrowser": true,
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
     },
-    "CodefictionApi": {
-      "commandName": "Project",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:2839/"
-    }
+    "applicationUrl": "http://localhost:2839/"
   }
 }
