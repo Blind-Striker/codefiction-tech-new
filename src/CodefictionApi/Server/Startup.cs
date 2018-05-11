@@ -48,6 +48,9 @@ namespace Codefiction.CodefictionTech.CodefictionApi.Server
             var builder = new ContainerBuilder();
             builder.Populate(services);
 
+            string dbSource = Configuration["DatabaseJson"];
+
+            builder.RegisterInstance(dbSource).Keyed<string>("DatabaseJson");
             builder.RegisterModule<ApiCoreModule>();
 
             Container = builder.Build();

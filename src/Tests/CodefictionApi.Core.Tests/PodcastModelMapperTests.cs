@@ -105,7 +105,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => podcast.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => podcast.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> { new Person() { Id = 1, Name = attendeeName } });
 
             IPodcastModel podcastModel = await mock.Map(podcast);
@@ -219,7 +219,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => podcast.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => podcast.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> { new Person() { Id = 1, Name = attendeeName } });
 
             mock.PersonService

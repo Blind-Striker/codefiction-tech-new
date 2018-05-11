@@ -81,7 +81,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => meetup.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => meetup.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> {new Person() {Id = 1, Name = attendeeName } });
 
             MeetupModel meetupModel = await mock.Map(meetup);
@@ -146,7 +146,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.VideoService
-                .Setup(service => service.GetVideosByIds(It.Is<IList<int>>(list => list.Any(s => meetup.VideoIds.Contains(s)))))
+                .Setup(service => service.GetVideosByIds(It.Is<IList<int>>(list => list.All(s => meetup.VideoIds.Contains(s)))))
                 .ReturnsAsync(() => new List<VideoModel> { new VideoModel() { Id = 1, Title = videoTitle } });
 
             MeetupModel meetupModel = await mock.Map(meetup);
@@ -211,7 +211,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.SponsorService
-                .Setup(service => service.GetSponsorsByIds(It.Is<IList<int>>(list => list.Any(s => meetup.SponsorIds.Contains(s)))))
+                .Setup(service => service.GetSponsorsByIds(It.Is<IList<int>>(list => list.All(s => meetup.SponsorIds.Contains(s)))))
                 .ReturnsAsync(() => new List<Sponsor> { new Sponsor { Id = 1, Name = sponsorName} });
 
             MeetupModel meetupModel = await mock.Map(meetup);
@@ -248,15 +248,15 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => meetup.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => meetup.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> { new Person() { Id = 1, Name = attendeeName } });
 
             mock.VideoService
-                .Setup(service => service.GetVideosByIds(It.Is<IList<int>>(list => list.Any(s => meetup.VideoIds.Contains(s)))))
+                .Setup(service => service.GetVideosByIds(It.Is<IList<int>>(list => list.All(s => meetup.VideoIds.Contains(s)))))
                 .ReturnsAsync(() => new List<VideoModel> { new VideoModel() { Id = 1, Title = videoTitle } });
 
             mock.SponsorService
-                .Setup(service => service.GetSponsorsByIds(It.Is<IList<int>>(list => list.Any(s => meetup.SponsorIds.Contains(s)))))
+                .Setup(service => service.GetSponsorsByIds(It.Is<IList<int>>(list => list.All(s => meetup.SponsorIds.Contains(s)))))
                 .ReturnsAsync(() => new List<Sponsor> { new Sponsor { Id = 1, Name = sponsorName } });
 
             MeetupModel meetupModel = await mock.Map(meetup);

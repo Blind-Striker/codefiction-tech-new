@@ -13,10 +13,12 @@ namespace CodefictionApi.Core.Repositories
         private const string DbCacheKey = "database";
 
         private readonly IMemoryCache _memoryCache;
+        private readonly string _dbSource;
 
-        public DatabaseProvider(IMemoryCache memoryCache)
+        public DatabaseProvider(IMemoryCache memoryCache, string dbSource)
         {
             _memoryCache = memoryCache;
+            _dbSource = dbSource;
         }
 
         public async Task<Database> GetDatabase()
@@ -26,7 +28,7 @@ namespace CodefictionApi.Core.Repositories
                 return database;
             }
 
-            using (StreamReader reader = File.OpenText("database.json"))
+            using (StreamReader reader = File.OpenText(_dbSource))
             {
                 string databaseStr = await reader.ReadToEndAsync();
                 database = JsonConvert.DeserializeObject<Database>(databaseStr);

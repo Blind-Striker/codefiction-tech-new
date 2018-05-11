@@ -103,7 +103,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => video.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => video.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> { new Person() { Id = 1, Name = attendeeName } });
 
             VideoModel videoModel = await mock.Map(video);
@@ -138,7 +138,7 @@ namespace CodefictionApi.Core.Tests
             };
 
             mock.PersonService
-                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(s => video.Attendees.Contains(s)))))
+                .Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(list => list.All(s => video.Attendees.Contains(s)))))
                 .ReturnsAsync(() => new List<Person> { new Person() { Id = 1, Name = attendeeName } });
 
             VideoModel videoModel = await mock.Map(video);

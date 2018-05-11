@@ -130,7 +130,7 @@ namespace CodefictionApi.Tests
 
             var people = new List<string>() { "Uğur Aldanmaz", "Özgün Bal" };
 
-            mock.PersonService.Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(p => p.Any(ps => people.Contains(ps))))).ReturnsAsync(() => new List<Person>());
+            mock.PersonService.Setup(service => service.GetPeopleByNames(It.Is<IList<string>>(p => p.All(ps => people.Contains(ps))))).ReturnsAsync(() => new List<Person>());
 
             IActionResult actionResult = await mock.PeopleByNames(people);
 

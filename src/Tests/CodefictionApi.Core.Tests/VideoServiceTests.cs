@@ -132,7 +132,7 @@ namespace CodefictionApi.Core.Tests
             var ids = new List<int>() {1, 3, 5};
 
             mock.VideoRepository
-                .Setup(repository => repository.GetVideosByIds(It.Is<IList<int>>(t => t.Any(i => ids.Contains(i)))))
+                .Setup(repository => repository.GetVideosByIds(It.Is<IList<int>>(t => t.All(i => ids.Contains(i)))))
                 .ReturnsAsync(() => new List<Video>());
 
             mock.VideoModelMapper.Setup(mapper => mapper.Map(It.IsAny<IEnumerable<Video>>()))

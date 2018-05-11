@@ -80,7 +80,7 @@ namespace CodefictionApi.Tests
 
             IList<int> ids = new List<int>() {1, 2, 5};
 
-            mock.VideoService.Setup(service => service.GetVideosByIds(It.Is<IList<int>>(vids => vids.Any(i => ids.Contains(i))))).ReturnsAsync(() => new List<VideoModel>());
+            mock.VideoService.Setup(service => service.GetVideosByIds(It.Is<IList<int>>(vids => vids.All(i => ids.Contains(i))))).ReturnsAsync(() => new List<VideoModel>());
 
             IActionResult actionResult = await mock.VideosByIds(ids);
 

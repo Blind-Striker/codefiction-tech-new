@@ -79,7 +79,7 @@ namespace CodefictionApi.Core.Tests
             IList<int> ids = new List<int>() {1, 2, 4};
 
             mock.SponsorRepository
-                .Setup(repository => repository.GetSponsorsByIds(It.Is<IList<int>>(i => i.Any(i1 => ids.Contains(i1)))))
+                .Setup(repository => repository.GetSponsorsByIds(It.Is<IList<int>>(i => i.All(i1 => ids.Contains(i1)))))
                 .ReturnsAsync(() => new List<Sponsor>());
 
             IEnumerable<Sponsor> sponsors = await mock.GetSponsorsByIds(ids);

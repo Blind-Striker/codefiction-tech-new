@@ -1,0 +1,171 @@
+﻿{
+  "Meetups": [
+    {
+      "Id": 1,
+      "Title": "Birinci Meetup",
+      "Description": "",
+      "MeetupLink": "",
+      "Attendees": [
+        "Deniz İrgin",
+        "Mert Susur"
+      ],
+      "VideoIds": [],
+      "SponsorIds": [],
+      "Photos": [],
+      "Date": "2017-01-26"
+    },
+    {
+      "Id": 2,
+      "Title": "İkinci Meetup",
+      "Description": "",
+      "MeetupLink": "",
+      "Attendees": [
+        "Barış Özaydın",
+        "Onur Aykaç",
+        "Fırat Özbolat"
+      ],
+      "VideoIds": [],
+      "SponsorIds": [],
+      "Photos": [],
+      "Date": "2017-08-26"
+    }
+  ],
+  "P2Ps": [
+    {
+      "Id": 1,
+      "Season": 1,
+      "Title": "Yazılım Mimarlığı ve Docker",
+      "Slug": "birinci-bolum-yazilim-mimarligi-ve-docker-ibrahim-gunduz",
+      "SoundcloudId": "295625256",
+      "YoutubeUrl": "https://www.youtube.com/embed/75w1Z32Osu4",
+      "ShortDescription": "Yeni programımızda bu hafta konuğumuz yazılım mimarı İbrahim Gündüz ile Docker, iş görüşmeleri ve sanallaştırma çözümlerini konuştuk. Programın sonunda da yaklaşık 2000 TL değerinde Jetbrains lisansı süprizimiz var!",
+      "LongDescription": "",
+      "Guest": "İbrahim Gündüz",
+      "Attendees": [
+        "Barış Özaydın",
+        "Deniz İrgin",
+        "Fırat Özbolat",
+        "Uğur Atar",
+        "Onur Aykaç"
+      ],
+      "Tags": [
+        "software architecture",
+        "software architect",
+        "docker",
+        "container"
+      ],
+      "Relations": [
+        {
+          "Type": "medium",
+          "Id": 1
+        }
+      ],
+      "PublishDate": "2016-12-01"
+    },
+    {
+      "Id": 2,
+      "Season": 1,
+      "Title": "Türkiye ve Avrupa'da yazlım kültürü ve işe alım",
+      "Slug": "ikinci-bolum-turkiyede-ve-avrupada-yazilim-kulturu-ebru-meric-akgul",
+      "SoundcloudId": "297796062",
+      "YoutubeUrl": "https://www.youtube.com/embed/Kp_22j-uY5A",
+      "ShortDescription": "Bu hafta Ebru Meriç Akgül konuğumuz oldu. Kendisiyle işe alım sorunlarını, Turkiye ve Avrupa'daki yazılım  kültürlerini ve kadın yazılımcıları konustuk. Gerçekten çok keyifli ve öğretici bir sohbet oldu.",
+      "LongDescription": "",
+      "Guest": "Ebru Meriç Akgül",
+      "Attendees": [
+        "Barış Özaydın",
+        "Deniz İrgin",
+        "Fırat Özbolat",
+        "Uğur Atar",
+        "Onur Aykaç"
+      ],
+      "Tags": [
+        "software architecture",
+        "software architect",
+        "docker",
+        "container"
+      ],
+      "Relations": [
+        {
+          "Type": "medium",
+          "Id": 1
+        }
+      ],
+      "PublishDate": "2016-12-14"
+    }
+  ],
+  "People": [
+    {
+      "Id": 1,
+      "Name": "Barış Özaydın",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/ozaydinb",
+      "Twitter": "https://twitter.com/obibaris",
+      "Medium": null,
+      "Github": "https://github.com/ozaydinb",
+      "Email": "ozaydin.baris@gmail.com",
+      "Website": null
+    },
+    {
+      "Id": 2,
+      "Name": "Deniz İrgin",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/deniz-irgin",
+      "Twitter": "https://twitter.com/denizirgin",
+      "Medium": "https://medium.com/@denizirgin_3389",
+      "Github": "https://github.com/Blind-Striker",
+      "Email": "denizirgin@gmail.com",
+      "Website": "https://denizirgin.com"
+    },
+    {
+      "Id": 4,
+      "Name": "Fırat Özbolat",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/f%C4%B1rat-%C3%B6zbolat-38835685",
+      "Twitter": "https://twitter.com/firatozbo",
+      "Medium": null,
+      "Github": "https://github.com/FiratOZ",
+      "Email": "firat.ozbolat@gmail.com",
+      "Website": null
+    },
+    {
+      "Id": 5,
+      "Name": "Mert Susur",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/msusur",
+      "Twitter": "https://twitter.com/MertSusur",
+      "Medium": "https://medium.com/@mertsusur",
+      "Github": "https://github.com/msusur",
+      "Email": "mail@mertsusur.com",
+      "Website": "http://www.mertsusur.com/"
+    },
+    {
+      "Id": 7,
+      "Name": "Onur Aykaç",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/onuar",
+      "Twitter": "https://twitter.com/onurgil",
+      "Medium": "https://medium.com/@onuraykac",
+      "Github": "https://github.com/onuar",
+      "Email": "onuraykac@gmail.com",
+      "Website": null
+    },
+    {
+      "Id": 6,
+      "Name": "Uğur Atar",
+      "PicUrl": "",
+      "Type": "Crew",
+      "Linkedin": "https://www.linkedin.com/in/uguratar",
+      "Twitter": "https://twitter.com/uuratar",
+      "Medium": null,
+      "Github": "https://github.com/uguratar",
+      "Email": "Ugur@socialeyesapp.com",
+      "Website": null
+    }
+  ]
+}

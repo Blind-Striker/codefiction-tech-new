@@ -114,7 +114,7 @@ namespace CodefictionApi.Core.Tests
             IList<string> peopleList = new List<string>() {"Uğur Atar", "Onur Aykaç", "Deniz Özgen"};
 
             mock.PersonRepository
-                .Setup(repository => repository.GetPeopleByNames(It.Is<IList<string>>(list => list.Any(p => peopleList.Contains(p)))))
+                .Setup(repository => repository.GetPeopleByNames(It.Is<IList<string>>(list => list.All(p => peopleList.Contains(p)))))
                 .ReturnsAsync(() => new List<Person>()
                 {
                     new Person() {Id = 1, Name = "Uğur Atar"},

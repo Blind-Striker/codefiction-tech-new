@@ -86,9 +86,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
             Assert.Equal(video.Title, dbVideo.Title);
             Assert.Equal(video.Type, dbVideo.Type);
             Assert.Equal(video.PublishDate, dbVideo.PublishDate);
-            Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.Any(s => video.Attendees.Contains(s)));
-            Assert.True(dbVideo.Tags != null && dbVideo.Tags.Any(s => video.Tags.Contains(s)));
-            Assert.True(dbVideo.Relations != null && dbVideo.Relations.Any(s => video.Relations.Contains(s)));
+            Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.All(s => video.Attendees.Contains(s)));
+            Assert.True(dbVideo.Tags != null && dbVideo.Tags.All(s => video.Tags.Contains(s)));
+            Assert.True(dbVideo.Relations != null && dbVideo.Relations.All(s => video.Relations.Contains(s)));
         }
 
         [Fact]
@@ -114,9 +114,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
                 Assert.Equal(video.Title, dbVideo.Title);
                 Assert.Equal(video.Type, dbVideo.Type);
                 Assert.Equal(video.PublishDate, dbVideo.PublishDate);
-                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.Any(s => video.Attendees.Contains(s)));
-                Assert.True(dbVideo.Tags != null && dbVideo.Tags.Any(s => video.Tags.Contains(s)));
-                Assert.True(dbVideo.Relations != null && dbVideo.Relations.Any(s => video.Relations.Contains(s)));
+                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.All(s => video.Attendees.Contains(s)));
+                Assert.True(dbVideo.Tags != null && dbVideo.Tags.All(s => video.Tags.Contains(s)));
+                Assert.True(dbVideo.Relations != null && dbVideo.Relations.All(s => video.Relations.Contains(s)));
             }
 
             Assert.Equal(videos.Count, _database.Videos.Length);
@@ -149,9 +149,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
                 Assert.Equal(video.Title, dbVideo.Title);
                 Assert.Equal(video.Type, dbVideo.Type);
                 Assert.Equal(video.PublishDate, dbVideo.PublishDate);
-                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.Any(s => video.Attendees.Contains(s)));
-                Assert.True(dbVideo.Tags != null && dbVideo.Tags.Any(s => video.Tags.Contains(s)));
-                Assert.True(dbVideo.Relations != null && dbVideo.Relations.Any(s => video.Relations.Contains(s)));
+                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.All(s => video.Attendees.Contains(s)));
+                Assert.True(dbVideo.Tags != null && dbVideo.Tags.All(s => video.Tags.Contains(s)));
+                Assert.True(dbVideo.Relations != null && dbVideo.Relations.All(s => video.Relations.Contains(s)));
             }
 
             Assert.Equal(videos.Count, dbVideos.Count);
@@ -185,9 +185,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
                 Assert.Equal(video.Title, dbVideo.Title);
                 Assert.Equal(video.Type, dbVideo.Type);
                 Assert.Equal(video.PublishDate, dbVideo.PublishDate);
-                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.Any(s => video.Attendees.Contains(s)));
-                Assert.True(dbVideo.Tags != null && dbVideo.Tags.Any(s => video.Tags.Contains(s)));
-                Assert.True(dbVideo.Relations != null && dbVideo.Relations.Any(s => video.Relations.Contains(s)));
+                Assert.True(dbVideo.Attendees != null && dbVideo.Attendees.All(s => video.Attendees.Contains(s)));
+                Assert.True(dbVideo.Tags != null && dbVideo.Tags.All(s => video.Tags.Contains(s)));
+                Assert.True(dbVideo.Relations != null && dbVideo.Relations.All(s => video.Relations.Contains(s)));
             }
 
             Assert.Equal(videos.Count, dbVideos.Count);

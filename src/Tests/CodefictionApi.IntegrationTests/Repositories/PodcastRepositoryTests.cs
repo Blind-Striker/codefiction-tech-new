@@ -110,9 +110,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
             Assert.Equal(podcast.LongDescription, dbPodcast.LongDescription);
             Assert.Equal(podcast.Guest, dbPodcast.Guest);
             Assert.Equal(podcast.PublishDate, dbPodcast.PublishDate);
-            Assert.True(podcast.Attendees != null && podcast.Attendees.Any(s => podcast.Attendees.Contains(s)));
-            Assert.True(podcast.Tags != null && podcast.Tags.Any(s => podcast.Tags.Contains(s)));
-            Assert.True(podcast.Relations != null && podcast.Relations.Any(s => podcast.Relations.Contains(s)));
+            Assert.True(podcast.Attendees != null && podcast.Attendees.All(s => podcast.Attendees.Contains(s)));
+            Assert.True(podcast.Tags != null && podcast.Tags.All(s => podcast.Tags.Contains(s)));
+            Assert.True(podcast.Relations != null && podcast.Relations.All(s => podcast.Relations.Contains(s)));
         }
 
         [Fact]
@@ -138,9 +138,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
             Assert.Equal(podcast.LongDescription, dbPodcast.LongDescription);
             Assert.Equal(podcast.Guest, dbPodcast.Guest);
             Assert.Equal(podcast.PublishDate, dbPodcast.PublishDate);
-            Assert.True(podcast.Attendees != null && podcast.Attendees.Any(s => podcast.Attendees.Contains(s)));
-            Assert.True(podcast.Tags != null && podcast.Tags.Any(s => podcast.Tags.Contains(s)));
-            Assert.True(podcast.Relations != null && podcast.Relations.Any(s => podcast.Relations.Contains(s)));
+            Assert.True(podcast.Attendees != null && podcast.Attendees.All(s => podcast.Attendees.Contains(s)));
+            Assert.True(podcast.Tags != null && podcast.Tags.All(s => podcast.Tags.Contains(s)));
+            Assert.True(podcast.Relations != null && podcast.Relations.All(s => podcast.Relations.Contains(s)));
         }
 
         [Fact]
@@ -167,9 +167,9 @@ namespace CodefictionApi.IntegrationTests.Repositories
                 Assert.Equal(podcast.LongDescription, dbPodcast.LongDescription);
                 Assert.Equal(podcast.Guest, dbPodcast.Guest);
                 Assert.Equal(podcast.PublishDate, dbPodcast.PublishDate);
-                Assert.True(podcast.Attendees != null && podcast.Attendees.Any(s => podcast.Attendees.Contains(s)));
-                Assert.True(podcast.Tags != null && podcast.Tags.Any(s => podcast.Tags.Contains(s)));
-                Assert.True(podcast.Relations != null && podcast.Relations.Any(s => podcast.Relations.Contains(s)));
+                Assert.True(podcast.Attendees != null && podcast.Attendees.All(s => podcast.Attendees.Contains(s)));
+                Assert.True(podcast.Tags != null && podcast.Tags.All(s => podcast.Tags.Contains(s)));
+                Assert.True(podcast.Relations != null && podcast.Relations.All(s => podcast.Relations.Contains(s)));
             }
 
             Assert.Equal(podcasts.Count, _database.Podcasts.Length);

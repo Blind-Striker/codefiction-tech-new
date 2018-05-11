@@ -10,9 +10,19 @@ namespace CodefictionApi.Core
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<DatabaseProvider>()
+                   .As<IDatabaseProvider>()
+                   .InstancePerDependency()
+                   .WithParameter((info, context) =>
+                                  {
+                                      return info.Name == "dbSource";
+                                  },
+                                  (info, context) =>
+                                  {
+                                      return context.ResolveKeyed<string>("DatabaseJson");
+                                  });
 
             builder.RegisterType<MeetupRepository>().As<IMeetupRepository>().InstancePerDependency();
-            builder.RegisterType<DatabaseProvider>().As<IDatabaseProvider>().InstancePerDependency();
             builder.RegisterType<PersonRepository>().As<IPersonRepository>().InstancePerDependency();
             builder.RegisterType<PodcastRepository>().As<IPodcastRepository>().InstancePerDependency();
             builder.RegisterType<SponsorRepository>().As<ISponsorRepository>().InstancePerDependency();
@@ -25,7 +35,6 @@ namespace CodefictionApi.Core
             builder.RegisterType<MeetupService>().As<IMeetupService>().InstancePerDependency();
             builder.RegisterType<PersonService>().As<IPersonService>().InstancePerDependency();
             builder.RegisterType<PodcastService>().As<IPodcastService>().InstancePerDependency();
-            builder.RegisterType<PersonService>().As<IPersonService>().InstancePerDependency();
             builder.RegisterType<SponsorService>().As<ISponsorService>().InstancePerDependency();
             builder.RegisterType<VideoService>().As<IVideoService>().InstancePerDependency();
         }

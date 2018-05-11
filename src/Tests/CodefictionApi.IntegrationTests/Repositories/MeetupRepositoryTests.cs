@@ -64,10 +64,10 @@ namespace CodefictionApi.IntegrationTests.Repositories
             Assert.Equal(meetup.Date, dbMeetup.Date);
             Assert.Equal(meetup.Description, dbMeetup.Description);
             Assert.Equal(meetup.MeetupLink, dbMeetup.MeetupLink);
-            Assert.True(dbMeetup.Attendees != null && dbMeetup.Attendees.Any(s => meetup.Attendees.Contains(s)));
-            Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.Any(s => meetup.VideoIds.Contains(s)));
-            Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.Any(s => meetup.SponsorIds.Contains(s)));
-            Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.Any(s => meetup.Photos.Contains(s)));
+            Assert.True(dbMeetup.Attendees != null && dbMeetup.Attendees.All(s => meetup.Attendees.Contains(s)));
+            Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.All(s => meetup.VideoIds.Contains(s)));
+            Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.All(s => meetup.SponsorIds.Contains(s)));
+            Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.All(s => meetup.Photos.Contains(s)));
         }
 
         [Fact]
@@ -89,10 +89,10 @@ namespace CodefictionApi.IntegrationTests.Repositories
                 Assert.Equal(meetup.Date, dbMeetup.Date);
                 Assert.Equal(meetup.Description, dbMeetup.Description);
                 Assert.Equal(meetup.MeetupLink, dbMeetup.MeetupLink);
-                Assert.True(dbMeetup.Attendees != null && dbMeetup.Attendees.Any(s => meetup.Attendees.Contains(s)));
-                Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.Any(s => meetup.VideoIds.Contains(s)));
-                Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.Any(s => meetup.SponsorIds.Contains(s)));
-                Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.Any(s => meetup.Photos.Contains(s)));
+                Assert.True(dbMeetup.Attendees != null && dbMeetup.Attendees.All(s => meetup.Attendees.Contains(s)));
+                Assert.True(dbMeetup.VideoIds != null && dbMeetup.VideoIds.All(s => meetup.VideoIds.Contains(s)));
+                Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.All(s => meetup.SponsorIds.Contains(s)));
+                Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.All(s => meetup.Photos.Contains(s)));
             }
 
             Assert.Equal(meetups.Count, _database.Meetups.Length);
