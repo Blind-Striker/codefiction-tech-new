@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Data;
 using CodefictionApi.Core.Repositories;
 using Xunit;
 
-namespace CodefictionApi.IntegrationTests
+namespace CodefictionApi.IntegrationTests.Repositories
 {
     public class MeetupRepositoryTests
     {
@@ -45,7 +44,6 @@ namespace CodefictionApi.IntegrationTests
                     }
                 }
             };
-            ;
         }
 
         [Fact]
@@ -96,6 +94,9 @@ namespace CodefictionApi.IntegrationTests
                 Assert.True(dbMeetup.SponsorIds != null && dbMeetup.SponsorIds.Any(s => meetup.SponsorIds.Contains(s)));
                 Assert.True(dbMeetup.Photos != null && dbMeetup.Photos.Any(s => meetup.Photos.Contains(s)));
             }
+
+            Assert.Equal(meetups.Count, _database.Meetups.Length);
+            Assert.Contains(meetups, meetup => _database.Meetups.Select(m => m.Id).Contains(meetup.Id));
         }
     }
 }

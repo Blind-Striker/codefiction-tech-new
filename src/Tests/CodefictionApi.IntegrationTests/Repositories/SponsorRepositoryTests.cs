@@ -5,7 +5,7 @@ using CodefictionApi.Core.Data;
 using CodefictionApi.Core.Repositories;
 using Xunit;
 
-namespace CodefictionApi.IntegrationTests
+namespace CodefictionApi.IntegrationTests.Repositories
 {
     public class SponsorRepositoryTests
     {
@@ -61,7 +61,7 @@ namespace CodefictionApi.IntegrationTests
         }
 
         [Fact]
-        public async Task GetMeetups_Should_Get_All_Sponsors()
+        public async Task GetSponsors_Should_Get_All_Sponsors()
         {
             var memoryDatabaseProvider = new InMemoryDatabaseProvider(_database);
             var sponsorRepository = new SponsorRepository(memoryDatabaseProvider);
@@ -84,7 +84,7 @@ namespace CodefictionApi.IntegrationTests
         }
 
         [Fact]
-        public async Task GetMeetupsByIds_Should_Get_Sponsors_By_Given_Id_List()
+        public async Task GetSponsorsByIds_Should_Get_Sponsors_By_Given_Id_List()
         {
             var memoryDatabaseProvider = new InMemoryDatabaseProvider(_database);
             var sponsorRepository = new SponsorRepository(memoryDatabaseProvider);
