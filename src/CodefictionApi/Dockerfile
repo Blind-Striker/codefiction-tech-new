@@ -2,7 +2,7 @@ FROM microsoft/aspnetcore:2.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM buildpack-deps:jessie-scm
+FROM buildpack-deps:jessie-scm AS publisher
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -63,18 +63,18 @@ RUN set -ex \
     done
 
 RUN set -ex \
-	&& wget "https://nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" -O node-v$NODE_VERSION-linux-x64.tar.gz \
-	&& wget "https://nodejs.org/download/release/v$NODE_VERSION/SHASUMS256.txt.asc" -O SHASUMS256.txt.asc \
-	&& gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-	&& grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt | sha256sum -c - \
-		&& tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
-		&& rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
-		&& ln -s /usr/local/bin/node /usr/local/bin/nodejs \
-		&& rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && wget "https://nodejs.org/download/release/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" -O node-v$NODE_VERSION-linux-x64.tar.gz \
+    && wget "https://nodejs.org/download/release/v$NODE_VERSION/SHASUMS256.txt.asc" -O SHASUMS256.txt.asc \
+    && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
+    && grep " node-v$NODE_VERSION-linux-x64.tar.gz\$" SHASUMS256.txt | sha256sum -c - \
+        && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+        && rm "node-v$NODE_VERSION-linux-x64.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt \
+        && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
+        && rm -fr /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN npm config set user 0
 RUN npm config set unsafe-perm true
-		
+
 RUN npm install -g @angular/cli@1.7.4
 RUN node -v && npm -v && ng -v
 
@@ -83,11 +83,27 @@ RUN apt-get update && apt-get install bzip2 -y
 ENV ASPNETCORE_URLS http://+:80
 
 WORKDIR /app
-EXPOSE 80
 COPY . .
 RUN dotnet restore ./CodefictionApi
 RUN dotnet publish ./CodefictionApi -c Release
 
-WORKDIR /app/CodefictionApi/bin/Release/netcoreapp2.0/publish
+FROM base AS final
+ARG source
+EXPOSE 5102
+ENV ASPNETCORE_URLS http://*:80
+RUN apt-get -qq update && apt-get -qqy --no-install-recommends install wget gnupg \
+    git \
+    unzip
+RUN curl -sL https://deb.nodesource.com/setup_8.x |  bash -
+RUN apt-get install -y nodejs
+RUN npm config set user 0
+RUN npm config set unsafe-perm true
+RUN npm install -g npm
 
+RUN npm install -g @angular/cli@1.7.4 --unsafe
+RUN npm install -g @angular/compiler-cli@5.2.1
+RUN node -v && npm -v && ng -v
+
+WORKDIR /app/CodefictionApi/bin/Release/netcoreapp2.0/publish
+COPY --from=publisher /app/CodefictionApi/bin/Release/netcoreapp2.0/publish .
 ENTRYPOINT ["dotnet", "CodefictionApi.dll"]
