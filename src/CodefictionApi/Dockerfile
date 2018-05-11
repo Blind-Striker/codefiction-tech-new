@@ -104,6 +104,8 @@ RUN npm install -g @angular/cli@1.7.4 --unsafe
 RUN npm install -g @angular/compiler-cli@5.2.1
 RUN node -v && npm -v && ng -v
 
+ENV ASPNETCORE_ENVIRONMENT=Development
+
 WORKDIR /app/CodefictionApi/bin/Release/netcoreapp2.0/publish
 COPY --from=publisher /app/CodefictionApi/bin/Release/netcoreapp2.0/publish .
 ENTRYPOINT ["dotnet", "CodefictionApi.dll"]
