@@ -16,8 +16,6 @@ namespace Codefiction.CodefictionTech.CodefictionApi.Server
 {
     public class Startup
     {
-        public const string AppS3BucketKey = "AppS3Bucket";
-
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
