@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Contracts;
-using CodefictionApi.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Codefiction.CodefictionTech.CodefictionApi.Server.ApiControllers

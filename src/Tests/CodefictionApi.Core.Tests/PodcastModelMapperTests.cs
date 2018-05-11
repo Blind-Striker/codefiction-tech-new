@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Contracts;
 using CodefictionApi.Core.Data;
-using CodefictionApi.Core.Models;
 using CodefictionApi.Core.Tests.Mocks;
 using Moq;
 using Xunit;

@@ -203,5 +203,22 @@
       "Email": null,
       "Website": "http://shr-consulting.com/who-we-are/"
     }
+  ],
+  "Sponsors": [
+    {
+      "Id": 1,
+      "Name": "armut.com",
+      "LogoUrl": "armut.png"
+    },
+    {
+      "Id": 2,
+      "Name": "Tekna",
+      "LogoUrl": "tekna.png"
+    },
+    {
+      "Id": 3,
+      "Name": "Microsoft",
+      "LogoUrl": "microsoft.png"
+    }
   ]
 }

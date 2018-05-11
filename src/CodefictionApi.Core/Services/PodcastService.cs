@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Contracts;
 using CodefictionApi.Core.Data;
-using CodefictionApi.Core.Models;
 
 namespace CodefictionApi.Core.Services
 {

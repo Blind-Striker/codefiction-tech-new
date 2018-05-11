@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Data;
-using CodefictionApi.Core.Models;
 using CodefictionApi.Tests.Mocks;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
