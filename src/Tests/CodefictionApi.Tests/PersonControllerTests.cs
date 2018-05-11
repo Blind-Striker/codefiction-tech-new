@@ -12,13 +12,13 @@ namespace CodefictionApi.Tests
     public class PersonControllerTests
     {
         [Fact]
-        public async Task Crew_Should_Call_IPersonService_GetCrew_And_Return_Ok()
+        public async Task PeopleByType_Should_Call_IPersonService_GetCrew_And_Return_Ok_If_Type_Is_Crew()
         {
             PersonControllerMock mock = PersonControllerMock.Create();
 
             mock.PersonService.Setup(service => service.GetCrew()).ReturnsAsync(() => new List<Person>());
 
-            IActionResult actionResult = await mock.Crew();
+            IActionResult actionResult = await mock.PeopleByType("crew");
 
             var okObjectResult = actionResult as OkObjectResult;
 
@@ -28,16 +28,17 @@ namespace CodefictionApi.Tests
 
             Assert.NotNull(people);
             mock.PersonService.Verify(service => service.GetCrew(), Times.Once);
+            mock.PersonService.Verify(service => service.GetGuests(), Times.Never);
         }
 
         [Fact]
-        public async Task Guests_Should_Call_IPersonService_GetGuests_And_Return_Ok()
+        public async Task PeopleByType_Should_Call_IPersonService_GetGuests_And_Return_Ok_If_Type_Is_Guest()
         {
             PersonControllerMock mock = PersonControllerMock.Create();
 
             mock.PersonService.Setup(service => service.GetGuests()).ReturnsAsync(() => new List<Person>());
 
-            IActionResult actionResult = await mock.Guests();
+            IActionResult actionResult = await mock.PeopleByType("guest");
 
             var okObjectResult = actionResult as OkObjectResult;
 
@@ -46,7 +47,29 @@ namespace CodefictionApi.Tests
             var people = okObjectResult.Value as List<Person>;
 
             Assert.NotNull(people);
+            mock.PersonService.Verify(service => service.GetCrew(), Times.Never);
             mock.PersonService.Verify(service => service.GetGuests(), Times.Once);
+        }
+
+        [Fact]
+        public async Task PeopleByType_Should_Return_Empty_And_Ok_If_Type_Is_Unknown()
+        {
+            PersonControllerMock mock = PersonControllerMock.Create();
+
+            mock.PersonService.Setup(service => service.GetCrew()).ReturnsAsync(() => new List<Person>());
+
+            IActionResult actionResult = await mock.PeopleByType("asdasge");
+
+            var okObjectResult = actionResult as OkObjectResult;
+
+            Assert.NotNull(okObjectResult);
+
+            var people = okObjectResult.Value as List<Person>;
+
+            Assert.NotNull(people);
+            Assert.Empty(people);
+            mock.PersonService.Verify(service => service.GetCrew(), Times.Never);
+            mock.PersonService.Verify(service => service.GetGuests(), Times.Never);
         }
 
         [Fact]

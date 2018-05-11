@@ -16,7 +16,7 @@ export class PersonService {
     }
 
     getPerson(name:string) {
-        return this.http.get<Person>(`${this.baseUrl}/api/people/${name}`);
+        return this.http.get<Person>(`${this.baseUrl}/api/people/name/${name}`);
     }
 
 }

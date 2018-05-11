@@ -166,6 +166,42 @@
       "Github": "https://github.com/uguratar",
       "Email": "Ugur@socialeyesapp.com",
       "Website": null
+    },
+    {
+      "Id": 12,
+      "Name": "Başar Köprücü",
+      "PicUrl": "",
+      "Type": "Guest",
+      "Linkedin": "https://www.linkedin.com/in/koprucu",
+      "Twitter": "https://twitter.com/sea_of_madness",
+      "Medium": null,
+      "Github": null,
+      "Email": null,
+      "Website": null
+    },
+    {
+      "Id": 13,
+      "Name": "Eray Acar",
+      "PicUrl": "",
+      "Type": "Guest",
+      "Linkedin": "https://www.linkedin.com/in/eray-acar-251b427b",
+      "Twitter": null,
+      "Medium": null,
+      "Github": null,
+      "Email": null,
+      "Website": null
+    },
+    {
+      "Id": 14,
+      "Name": "Ebru Meriç Akgül",
+      "PicUrl": "",
+      "Type": "Guest",
+      "Linkedin": "https://www.linkedin.com/in/ebrumericakgul",
+      "Twitter": "https://twitter.com/ebrumericakgul",
+      "Medium": null,
+      "Github": null,
+      "Email": null,
+      "Website": "http://shr-consulting.com/who-we-are/"
     }
   ]
 }

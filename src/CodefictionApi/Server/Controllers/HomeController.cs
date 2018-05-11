@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Codefiction.CodefictionTech.CodefictionApi.Server.Helpers;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Codefiction.CodefictionTech.CodefictionApi.Server.Controllers
@@ -9,6 +10,8 @@ namespace Codefiction.CodefictionTech.CodefictionApi.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
+            HttpRequest httpContextRequest = HttpContext.Request;
+
             var prerenderResult = await Request.BuildPrerender();
 
             ViewData["SpaHtml"] = prerenderResult.Html; // our <app-root /> from Angular

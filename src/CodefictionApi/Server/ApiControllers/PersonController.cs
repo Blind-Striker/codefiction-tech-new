@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using CodefictionApi.Core.Contracts;
 using CodefictionApi.Core.Data;
@@ -17,25 +18,25 @@ namespace Codefiction.CodefictionTech.CodefictionApi.Server.ApiControllers
         }
 
         [HttpGet]
-        [Route("/crew")]
-        public async Task<IActionResult> Crew()
+        [Route("type/{type}")]
+        public async Task<IActionResult> PeopleByType(string type)
         {
-            IEnumerable<Person> crew = await _personService.GetCrew();
+            IEnumerable<Person> people = new List<Person>();
 
-            return Ok(crew);
+            if (type.Equals("Crew", StringComparison.InvariantCultureIgnoreCase))
+            {
+                people = await _personService.GetCrew();
+            }
+            else if (type.Equals("Guest", StringComparison.InvariantCultureIgnoreCase))
+            {
+                people = await _personService.GetGuests();
+            }
+
+            return Ok(people);
         }
 
         [HttpGet]
-        [Route("/guests")]
-        public async Task<IActionResult> Guests()
-        {
-            IEnumerable<Person> guests = await _personService.GetGuests();
-
-            return Ok(guests);
-        }
-
-        [HttpGet]
-        [Route("{name}")]
+        [Route("name/{name}")]
         public async Task<IActionResult> PersonByName(string name)
         {
             if (!ModelState.IsValid)
